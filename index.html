@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+	body {
+		background: #eef;
+	}
+	canvas {
+		box-shadow: 1px 3px 10px;
+		background: #fff;
+	}
+	</style>
+</head>
+<body>
+
+<h1>Image Manipulation</h1>
+
+Select an image:
+<input type="file" id="local_files">
+
+
+<script type="text/javascript" src="js/canvas.js"></script>
+<script type="text/javascript">
+	var canvas = new Canvas(500,500, "body");
+
+	//Listen for when someone adds an image to the file input button
+	document.querySelectorAll("#local_files")[0].addEventListener("change",function(event) {
+		//then, create a fileReader
+		var reader = new FileReader();
+
+		//Use canvas's loadImage method
+	    reader.onload = canvas.loadImage.bind(canvas);
+
+	    //Now, set the reader reading, now that it knows what to do when it's done
+	    reader.readAsDataURL(event.target.files[0]);
+	});
+
+
+	//do some stuff
+
+
+</script>
+
+</body>
+</html>
