@@ -26,6 +26,8 @@ Canvas.prototype.loadImage = function(event) {
 	//create an unattached img element
 	var img = document.createElement("img");
 	img.src = event.target.result;
+	this.canvas.width = img.width;
+	this.canvas.height = img.height;
 	this.ctx.drawImage(img, 0, 0);
 };
 
